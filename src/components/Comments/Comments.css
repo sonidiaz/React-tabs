@@ -1,10 +1,59 @@
-li.headerList {
+.headerComments.headerComments {
   position: relative;
-  margin: 10px 0 20px;
+  padding: 28px 1em;
+  background: #c2b0c9;
+  border: 1px solid #9656a138 !important;
 }
-li.headerList ul {
-  padding: 0 0 0 24px;
+.headerComments.list-item {
+  padding: 0;
 }
-li.headerList ul li {
-  margin: 10px;
+.headerComments.list-item.active {
+  background: #9656a1;
+}
+
+.headerComments .actionTabs{
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  border: 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 2em 1em;
+}
+.itemsListParent {
+  background: #c2b0ca61;
+  opacity: 1;
+  border-bottom: 1px solid #9656a138 !important;
+  transition: all ease 0.5s;
+}
+
+.active-enter-done{
+  transition: all 1ms ease;
+}
+
+.detail{
+  position: relative;
+  display: flex;
+  margin: 8px 0;
+}
+.detail label{
+  margin: 0 10px 0 0
+}
+
+.my-node-enter {
+  opacity: 0;
+}
+.my-node-enter-active {
+  opacity: 1;
+  transition: opacity 200ms;
+}
+.my-node-exit {
+  opacity: 1;
+}
+.my-node-exit-active {
+  opacity: 0;
+  transition: opacity 200ms;
 }

@@ -1,0 +1,22 @@
+.principal-list{
+  margin-bottom: 43px;
+}
+
+.headerComments{
+  background: #c2b0c9;
+}
+
+.second-list{
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  transition: all ease 500ms;
+}
+.second-list.active{
+  transition: all ease 500ms;
+  height: auto;
+  /* height: 621px; */
+}
+.butonHeaderList{
+  background: transparent;
+}

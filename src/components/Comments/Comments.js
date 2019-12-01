@@ -1,14 +1,22 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import "./Comments.css";
 
-const Comments = ({ name, email, comment, idx }) => {
+const Comments = ({ name, email, comment }) => {
   return (
-    <li className="itemsListParent" key={idx} name={name} email={email}>
-      <span>Estos son los comentarios para el post con id </span>
-      <h2>{name}</h2>
-      <h3>{email}</h3>
-      <p>{comment}</p>
-    </li>
+      <li className="itemsListParent list-item">
+        <div className="detail">
+        <label htmlFor="Nombre"><strong>Name:</strong></label>
+          <h2>{name}</h2>
+        </div>
+        <div className="detail">
+          <label htmlFor="Nombre"><strong>Email:</strong></label>
+          <h3>{email}</h3>
+        </div>
+        <div className="detail">
+          <label htmlFor="Nombre"><strong>Comments:</strong></label>
+          <p>{comment}</p>  
+        </div>
+      </li>
   );
 };
 

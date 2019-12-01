@@ -1,48 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { Comments } from "../Comments/Comments";
-import { resolve } from "q";
+import {CommentsGroup} from '../Comments/CommentsGroup'
+import './Accordion.css';
 
 const Accordion = () => {
-  const [list, setList] = useState({});
-  let [keyList, setTkeyList] = useState([]);
   const baseUrl = "https://jsonplaceholder.typicode.com";
+  const [comments, setComments] = useState({});
+  const [keyComments, setTkeyComments] = useState([]);
 
-  async function getList() {
+  async function getComments() {
     let response = await fetch(`${baseUrl}/posts/1/comments`);
     let data = await response.json();
     return data;
   }
   useEffect(() => {
-    async function getAllList() {
-      const response = await getList();
+    async function getAllComments() {
+      const response = await getComments();
       let group = response.reduce((r, a) => {
         r[a.postId] = [...(r[a.postId] || []), a];
-        console.log("primero ");
         return r;
       }, {});
-      keyList = Object.keys(group);
-      setList(group);
-      setTkeyList(keyList);
+      setComments(group);
+      setTkeyComments(Object.keys(group));
     }
-    getAllList();
+    getAllComments();
   }, []);
-  const renderComments = (el, idx) => {
-    return list[el].map((el, idx) => (
-      <Comments key={idx} name={el.name} email={el.email} comment={el.body} />
-    ));
-  };
+  
   return (
-    <ul>
-      {keyList.map((elem, index) => {
+    <ul className="principal-list">
+      {keyComments.map((elem, index) => {
         return (
-          <li className="headerList">
-            <ul>
-              <li className="headerComments">
-                <h2>Header List {index}</h2>
-              </li>
-              {renderComments(elem, index)}
-            </ul>
-          </li>
+          <CommentsGroup
+            key={index}
+            element={elem}
+            index={index}
+            comments={comments}
+          />
         );
       })}
     </ul>
