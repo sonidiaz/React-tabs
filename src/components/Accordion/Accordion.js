@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {CommentsGroup} from '../Comments/CommentsGroup'
+import { Link } from 'react-router-dom'
 import './Accordion.css';
 
 const Accordion = () => {
@@ -29,12 +30,14 @@ const Accordion = () => {
     <ul className="principal-list">
       {keyComments.map((elem, index) => {
         return (
-          <CommentsGroup
-            key={index}
-            element={elem}
-            index={index}
-            comments={comments}
-          />
+          <Link to={`/${elem}`}>
+            <CommentsGroup
+              key={index}
+              element={elem}
+              index={index}
+              comments={comments}
+            />
+          </Link>
         );
       })}
     </ul>
